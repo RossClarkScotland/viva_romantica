@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account', #enables user login/logout, registration, etc.
+    'allauth.socialaccount', #enables logging in via social media platforms
 ]
 
 MIDDLEWARE = [
@@ -59,6 +63,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                # lets allauth/django access template http request objects
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -66,6 +71,35 @@ TEMPLATES = [
         },
     },
 ]
+
+UTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# used with django.contrib.sites to create callback URLs for social media
+SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# tells allauth to enable authentication with emails/usernames
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+# makes an email necessary for registration
+ACCOUNT_EMAIL_REQUIRED = True
+# makes verification of a real email mandatory
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# requires users to enter their email twice upon registering
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+# sets the minimum length for a username
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+# specifies the login URL
+LOGIN_URL = '/accounts/login/'
+# specifies the login to redirect to once the user logs in
+LOGIN_REDIRECT_URL = '/'
+
 
 WSGI_APPLICATION = 'viva_romantica.wsgi.application'
 
