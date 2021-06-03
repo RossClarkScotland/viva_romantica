@@ -1,0 +1,40 @@
+html {
+    height: 100%;
+}
+
+#hero-image {
+
+    background-image:-o-linear-gradient(rgb(7, 7, 7), rgba(19, 18, 18, 0.3)), url("/media/background.jpg");
+
+    background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(7, 7, 7)), to(rgba(19, 18, 18, 0.3))), url("/media/background.jpg");
+
+    background-image:linear-gradient(rgb(7, 7, 7), rgba(19, 18, 18, 0.3)), url("/media/background.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+    
+}
+
+.hero-text-box {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    color: black;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+    #landing-head {
+        font-family: 'Amatic SC','Lato', 'Times', sans-serif;
+        font-size: 4rem;
+        color: white;
+    }
+ 
+    #landing-sub {
+        color: white;
+        font-family: 'Lato', 'Times';
+        font-size: 1.5rem;
+    } 
