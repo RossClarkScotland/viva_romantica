@@ -4,20 +4,20 @@ html {
 
 #hero-image {
 
-    background-image:-o-linear-gradient(rgb(7, 7, 7), rgba(19, 18, 18, 0.3)), url("/media/background.jpg");
+    background-image:-o-linear-gradient(rgb(7, 7, 7), rgba(80, 80, 80, 0.3)), url("/media/background.png");
 
-    background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(7, 7, 7)), to(rgba(19, 18, 18, 0.3))), url("/media/background.jpg");
+    background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(7, 7, 7)), to(rgba(80, 08, 80, 0.3))), url("/media/background.png");
 
-    background-image:linear-gradient(rgb(7, 7, 7), rgba(19, 18, 18, 0.3)), url("/media/background.jpg");
+    background-image:linear-gradient(rgb(7, 7, 7), rgba(80, 80, 80, 0.3)), url("/media/background.png");
     width: 100vw;
     height: 100vh;
     background-size: 100% 100%;
     
 }
 
-.hero-text-box {
+#hero-text-box {
     position: absolute;
-    top: 25%;
+    top: 17%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -29,12 +29,22 @@ html {
 
     #landing-head {
         font-family: 'Amatic SC','Lato', 'Times', sans-serif;
-        font-size: 4rem;
+        font-size: 4.5rem;
         color: white;
     }
  
     #landing-sub {
         color: white;
         font-family: 'Lato', 'Times';
-        font-size: 1.5rem;
-    } 
+        font-size: 1rem;
+    }
+    
+    #home-btn {
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        text-align: center;
+    }
