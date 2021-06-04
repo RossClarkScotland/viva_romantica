@@ -17,7 +17,7 @@ html {
 
 #hero-text-box {
     position: absolute;
-    top: 17%;
+    top: 25%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -41,10 +41,14 @@ html {
     
     #home-btn {
         position: absolute;
-        top: 38%;
+        top: 45%;
         left: 50%;
         -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
                 transform: translate(-50%, -50%);
         text-align: center;
+    }
+
+    .nav_icons {
+        color: white;
     }

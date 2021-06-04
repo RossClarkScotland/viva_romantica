@@ -47,8 +47,27 @@
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">Account</p>
+                                <div><i class="nav_icons fas fa-chalkboard-teacher fa-lg"></i></div>
+                                <p class="nav_icons my-0">Courses</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            <a href="#" class="dropdown-item">French</a>
+                            <a href="#" class="dropdown-item">Italian</a>
+                            <a href="#" class="dropdown-item">Portugese</a>
+                            <a href="#" class="dropdown-item">Romanian</a>
+                            <a href="#" class="dropdown-item">Spanish</a>
+                        </div>
+                    </li>
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="nav_icons fas fa-user fa-lg"></i></div>
+                                {% if request.user.is_authenticated %}
+                                    <p class="nav_icons my-0">Account</p>
+                                {% else %}
+                                    <p class="nav_icons my-0">Log-in / Register</p>
+                                {% endif %}
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
@@ -59,25 +78,27 @@
                                 <a href="" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                             {% endif %}
                         </div>
                     </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        $0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="list-inline-item">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                                <div class="text-center">
+                                    <div><i class="nav_icons fas fa-shopping-bag fa-lg"></i></div>
+                                    <p class="nav_icons my-0">
+                                        {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                            $0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
