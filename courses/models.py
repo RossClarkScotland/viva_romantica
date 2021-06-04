@@ -1,6 +1,10 @@
 from django.db import models
 
 class Language(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Languages'
+        
     name = models.CharField(max_length=50)
     friendly_name = models.CharField(max_length=50, null=True, blank=True)
 

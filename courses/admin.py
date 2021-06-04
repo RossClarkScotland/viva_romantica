@@ -3,5 +3,22 @@ from .models import Course, Language
 
 
 # Register your models here.
-admin.site.register(Course)
-admin.site.register(Language)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'image',
+        'description',
+        'price',
+        'sku',
+    )
+
+    ordering = ('image',)
+
+class LanguageAdmin(admin.ModelAdmin):
+     list_display = (
+         'friendly_name',
+         'name',
+     )
+
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Language, LanguageAdmin)
