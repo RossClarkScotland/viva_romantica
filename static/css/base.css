@@ -42,10 +42,14 @@ html, body {
     background-color: #343a40;
 }
 
+#mobile-logo {
+    font-family: 'Amatic SC','Lato', 'Times';
+}
+
 /**** home page ****/
 #hero-text-box {
     position: absolute;
-    top: 26%;
+    top: 21%;
     left: 67.5%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -108,3 +112,10 @@ html, body {
     }
 
 }
+
+/** navbar **/
+@media only screen and (min-width: 1280px) {
+    #mobile-logo {
+      display: none;
+    }
+  }
