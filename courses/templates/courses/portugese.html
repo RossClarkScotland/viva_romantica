@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid"></div>
+        <div class="row">
+            <div class="col text-center mt-5 mb-3">
+                <hr class="w-50 mb-2 mt-4">
+                <h2 class="logo-font course-header">Portugese Courses</h2>
+                <hr class="w-50 mb-5 mt-2">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            {% for portugese_course in portugese_courses %}
+                <div class="col-12 col-lg-4">
+                    <div class="card h-100 border-0 mx-auto mb-5">
+                        <div class="card mx-auto">
+                            <img class="card-img-top" src="{{ portugese_course.image.url }}" 
+                            alt="{{ portugese_course.name }}">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ portugese_course.name }}</h5>
+                                <p class="card-text">Price: ${{ portugese_course.price }}</p>
+                                <a href="#" class="btn btn-primary">Tell me more!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock %}
