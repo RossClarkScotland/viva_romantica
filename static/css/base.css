@@ -17,11 +17,11 @@ html, body {
 
 #hero-image {
 
-    background-image:-o-linear-gradient(rgb(7, 7, 7), rgba(80, 80, 80, 0.3)), url("/media/background.png");
+    background-image: url("/media/background.png");
 
-    background-image:-webkit-gradient(linear, left top, left bottom, from(rgb(7, 7, 7)), to(rgba(80, 08, 80, 0.3))), url("/media/background.png");
+    background-image: url("/media/background.png");
 
-    background-image:linear-gradient(rgb(7, 7, 7), rgba(80, 80, 80, 0.3)), url("/media/background.png");
+    background-image: url("/media/background.png");
     width: 100vw;
     height: 100vh;
     background-size: 100% 100%;
@@ -29,15 +29,24 @@ html, body {
 }
 
 /**** navbar ****/
-.nav_icons {
-    color: black;
+
+/* styles navbar text*/
+.navbar-light .navbar-nav .nav-link {
+    color: whitesmoke;
+    font-family: 'Lato', 'Times';
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.navbar {
+    background-color: #343a40;
 }
 
 /**** home page ****/
 #hero-text-box {
     position: absolute;
-    top: 35%;
-    left: 50%;
+    top: 26%;
+    left: 67.5%;
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -47,8 +56,8 @@ html, body {
 }
 
     #landing-head {
-        font-family: 'Amatic SC','Lato', 'Times', sans-serif;
-        font-size: 4.5rem;
+        font-family: 'Amatic SC','Lato', 'Times';
+        font-size: 5rem;
         color: white;
     }
  
@@ -58,15 +67,6 @@ html, body {
         font-size: 1rem;
     }
     
-    #home-btn {
-        position: absolute;
-        top: 55%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        text-align: center;
-    }
 
 /**** courses pages ****/
 .overlay {
@@ -90,14 +90,14 @@ html, body {
 
 /**** Media Queries ****/
 
-/** for XL screens**/
+/** from walkthough project: for XL screens**/
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
     }
 }
 
-/** fix the navbar to top for md screens and above **/
+/** from walkthrough project: fix the navbar to top for md screens and above **/
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
