@@ -73,14 +73,10 @@ html, body {
     
 
 /**** courses pages ****/
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
+
+.course-header {
+    font-family: 'Amatic SC','Lato', 'Times'; 
+    font-size: 4rem;
 }
 
 .card {
