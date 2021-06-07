@@ -19,7 +19,7 @@
                             <div class="card-body text-center">
                                 <h5 class="card-title">{{ romanian_course.name }}</h5>
                                 <p class="card-text">Price: ${{ romanian_course.price }}</p>
-                                <a href="#" class="btn btn-primary">Tell me more!</a>
+                                <a href="{% url 'course_details' romanian_course.id %}" class="btn btn-primary">Tell me more!</a>
                             </div>
                         </div>
                     </div>

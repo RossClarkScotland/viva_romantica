@@ -5,26 +5,25 @@
         <div class="row">
             <div class="col text-center mt-5 mb-3">
                 <hr class="w-50 mb-2 mt-4">
-                <h2 class="logo-font course-header">Spanish Courses</h2>
+                <h2 class="logo-font course-header">{{ course.name }}</h2>
                 <hr class="w-50 mb-5 mt-2">
             </div>
         </div>
         <div class="row justify-content-center">
-            {% for spanish_course in spanish_courses %}
-                <div class="col-12">
-                    <div class="card h-100 border-0 mx-auto mb-5">
-                        <div class="card mx-auto">
-                            <img class="card-img-top" src="{{ spanish_course.image.url }}" 
-                            alt="{{ spanish_course.name }}">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ spanish_course.name }}</h5>
-                                <p class="card-text">{{ spanish_course.description }}</p>
-                                <p class="card-text">Price: ${{ spanish_course.price }}</p>
-                                <a href="#" class="btn btn-primary">Tell me more!</a>
-                            </div>
+                <div class="col-12 col-md-5 offset-md-1">
+                    <p>{{ course.description }}</p>
+                </div>
+                <div class="card h-100 border-0 mx-auto mb-5 col-12 col-md-6">
+                    <div class="card mx-auto">
+                        <img class="card-img-top" src="{{ course.image.url }}" 
+                        alt="{{ course.name }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ course.name }}</h5>
+                            <p class="card-text">Price: ${{ course.price }}</p>
+                            <a href="#" class="btn btn-primary">Buy now!</a>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
 {% endblock %}
