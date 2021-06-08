@@ -12,6 +12,63 @@
 {% endblock %}
 
 {% block content %}
+<    <div class="container mb-2">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Shopping Bag</h2>
+            <hr>
+        </div>
+    </div>
+
+    {% if shopping_bag_items %}
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive rounded">
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h4 class="lead mb-5">Your bag is empty. Find a course now!</h4>
+        <div class="row">
+            <div class="col-6 col-md-2 offset-md-1">
+                <a href="{% url 'french' %}" class="btn btn-primary btn-lg bag-btn">
+                    <span class="icon">
+                    </span>
+                    <span class="text-uppercase">French</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-2">
+                <a href="{% url 'italian' %}" class="btn btn-primary btn-lg bag-btn">
+                    <span class="icon">
+                    </span>
+                    <span class="text-uppercase">Italian</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-2">
+                <a href="{% url 'portugese' %}" class="btn btn-primary btn-lg bag-btn">
+                    <span class="icon">
+                    </span>
+                    <span class="text-uppercase">Portugese</span>
+                </a>
+            </div>
+            <div class="col-6 col-md-2">
+                <a href="{% url 'romanian' %}" class="btn btn-primary btn-lg bag-btn">
+                    <span class="icon">
+                    </span>
+                    <span class="text-uppercase">Romanian</span>
+                </a>
+            </div>
+            <div class="col col-md-2">
+                <a href="{% url 'spanish' %}" class="btn btn-primary btn-lg bag-btn">
+                    <span class="icon">
+                    </span>
+                    <span class="text-uppercase">Spanish</span>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+       
 
 {% endblock %}
 

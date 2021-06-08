@@ -87,7 +87,10 @@ html, body {
     height: 12rem;
     }
 
-
+/**** shopping_bag.html ****/
+.bag-btn {
+    width: 10rem;
+}
 /**** Media Queries ****/
 
 /** from walkthough project: for XL screens**/
