@@ -20,7 +20,14 @@
                         <div class="card-body text-center">
                             <h5 class="card-title">{{ course.name }}</h5>
                             <p class="card-text">Price: ${{ course.price }}</p>
-                            <a href="#" class="btn btn-primary">Buy now!</a>
+                            <form class="form" action="{% url 'add_to_shopping_bag' course.id %}" method="POST">
+                                {% csrf_token %}
+                                    <div class="col-12">
+                                        <input type="submit" class="btn btn-primary" value="Add to shopping bag">
+                                    </div>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
