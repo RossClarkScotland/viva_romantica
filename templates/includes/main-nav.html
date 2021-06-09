@@ -54,19 +54,15 @@
         </li>
         {% if request.user.is_authenticated %}
             <li class="nav-item">
-                <a class="font-weight-bold nav-link mr-5" href="{% url 'view_shopping_bag' %}"
+                <a class="nav-link mr-5" href="{% url 'view_shopping_bag' %}"
                 aria-haspopup="true" aria-expanded="false">
-                    Shopping bag
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                {% if grand_total %}
+                    €{{ grand_total|floatformat:2 }}
+                {% else %}
+                    €0.00
+                {% endif %}
                 </a>
-            </li>
-            <li class="nav-item">
-                <p class="nav-link ">
-                    {% if grand_total %}
-                        €{{ grand_total|floatformat:2 }}
-                    {% else %}
-                        €0.00
-                    {% endif %}
-                </p>
             </li>
         {% endif %}
         {% if not request.user.is_authenticated %}

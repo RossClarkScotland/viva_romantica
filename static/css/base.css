@@ -11,9 +11,6 @@ html, body {
     display: none;
   }
 
-.text-black {
-    color: black;
-}
 
 #hero-image {
 
@@ -89,6 +86,10 @@ html, body {
 
 /**** shopping_bag.html ****/
 .bag-btn {
+    width: 10rem;
+}
+
+.bag-img {
     width: 10rem;
 }
 /**** Media Queries ****/
