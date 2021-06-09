@@ -2,13 +2,13 @@
     <a id="mobile-logo" class="navbar-brand navbar-right" href="#">¡Viva Romantica!</a>
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item">
-            <a class="font-weight-bold nav-link text-black mr-5" href="{% url 'home' %}"
+            <a class="font-weight-bold nav-link mr-5" href="{% url 'home' %}"
             aria-haspopup="true" aria-expanded="false">
                 Home
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="font-weight-bold nav-link text-black mr-5" href="#"
+            <a class="font-weight-bold nav-link mr-5" href="#"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              Our fantastic courses
             </a>
@@ -22,7 +22,7 @@
         </li>
         {% if request.user.is_authenticated %}
             <li class="nav-item">
-                <a class="font-weight-bold nav-link text-black mr-5" href="#" data-toggle="dropdown" 
+                <a class="font-weight-bold nav-link mr-5" href="#" data-toggle="dropdown" 
                 aria-haspopup="true" aria-expanded="false">
                     My profile
                 </a>
@@ -30,12 +30,12 @@
         {% endif %}
         <li class="nav-item dropdown">
             {% if request.user.is_authenticated %}
-                <a class="font-weight-bold nav-link text-black mr-5" href="#" data-toggle="dropdown" aria-haspopup="true" 
+                <a class="font-weight-bold nav-link mr-5" href="#" data-toggle="dropdown" aria-haspopup="true" 
                 aria-expanded="false">
                     Account
                 </a>
             {% else %}
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" data-toggle="dropdown" aria-haspopup="true" 
+            <a class="logo-font font-weight-bold nav-link mr-5" href="#" data-toggle="dropdown" aria-haspopup="true" 
             aria-expanded="false">
                 Log in / Register
             </a>
@@ -54,10 +54,19 @@
         </li>
         {% if request.user.is_authenticated %}
             <li class="nav-item">
-                <a class="font-weight-bold nav-link text-black mr-5" href="{% url 'view_shopping_bag' %}"
+                <a class="font-weight-bold nav-link mr-5" href="{% url 'view_shopping_bag' %}"
                 aria-haspopup="true" aria-expanded="false">
                     Shopping bag
                 </a>
+            </li>
+            <li class="nav-item">
+                <p class="nav-link ">
+                    {% if grand_total %}
+                        €{{ grand_total|floatformat:2 }}
+                    {% else %}
+                        €0.00
+                    {% endif %}
+                </p>
             </li>
         {% endif %}
         {% if not request.user.is_authenticated %}
