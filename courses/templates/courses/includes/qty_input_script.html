@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+// Based on Boutique Ado walkthrough project
+
+    // prevent user from increasing/decreasing qty outwith range of 1-99
+    function EnableDisableHandler(itemId) {
+        let valNow = parseInt($(`#id_qty_${itemId}`).val());
+        let disableMinusBtn = valNow < 2;
+        let disablePlusBtn = valNow > 98;
+        $(`#decrease-qty_${itemId}`).prop('disabled', disableMinusBtn);
+        $(`#increase-qty_${itemId}`).prop('disabled', disablePlusBtn);
+    }
+
+    // ensures all inputs correctly enabled/disabled when page loads
+    let qtyInputs = $('.qty_input');
+    for(let i = 0; i < qtyInputs.length; i++){
+        let itemId = $(qtyInputs[i]).data('item_id');
+        EnableDisableHandler(itemId);
+    }
+
+    // checks enable/disable any time user changes input
+    $('.qty_input').change(function() {
+        let itemId = $(this).data('item_id');
+        EnableDisableHandler(itemId);
+    });
+
+    // increase qty
+    $('.increase-qty').click(function(e) {
+       e.preventDefault();
+       let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       let valNow = parseInt($(closestInput).val());
+       $(closestInput).val(valNow + 1);
+       let itemId = $(this).data('item_id');
+       EnableDisableHandler(itemId);
+    });
+
+    // decrease qty
+    $('.decrease-qty').click(function(e) {
+       e.preventDefault();
+       let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+       let valNow = parseInt($(closestInput).val());
+       $(closestInput).val(valNow - 1);
+       let itemId = $(this).data('item_id');
+       EnableDisableHandler(itemId);
+    });
+</script>
