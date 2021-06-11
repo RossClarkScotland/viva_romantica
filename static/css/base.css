@@ -92,6 +92,11 @@ html, body {
 .bag-img {
     width: 10rem;
 }
+
+.update-items-link,
+.remove-items-link {
+    cursor: pointer;
+}
 /**** Media Queries ****/
 
 /** from walkthough project: for XL screens**/

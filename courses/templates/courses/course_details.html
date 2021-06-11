@@ -27,6 +27,7 @@
                                         <p><strong>Quantity:</strong></p>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <div class="row mx-auto">
                                         <div class="col-12">
@@ -35,7 +36,7 @@
                                                     <div class="input-group-prepend">
                                                         <button class="decrease-qty btn" 
                                                             data-item_id="{{ course.id }}" id="decrease-qty_{{ course.id }}">
-                                                            <span class="icon">
+                                                            <span>
                                                                 <i class="fas fa-minus"></i>
                                                             </span>
                                                         </button>
@@ -46,7 +47,7 @@
                                                     <div class="input-group-append">
                                                         <button class="increase-qty btn" 
                                                             data-item_id="{{ course.id }}" id="increase-qty_{{ course.id }}">
-                                                            <span class="icon">
+                                                            <span>
                                                                 <i class="fas fa-plus"></i>
                                                             </span>
                                                         </button>
@@ -56,6 +57,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-12">
                                         <input type="submit" class="btn btn-primary" value="Add to shopping bag">

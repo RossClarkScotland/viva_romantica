@@ -52,7 +52,41 @@
                                     <p>€{{ item.course.price }}</p>
                                 </td>
                                 <td class="py-2">
-                                    <p>{{ item.quantity }}</p>
+                                    <form method="POST" action="">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="row mx-auto">
+                                                <div class="col-12">
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <button class="decrease-qty btn" 
+                                                                    data-item_id="{{ item.item_id }}" id="decrease-qty_{{ item.item_id }}">
+                                                                    <span class="icon">
+                                                                        <i class="fas fa-minus"></i>
+                                                                    </span>
+                                                                </button>
+                                                            </div>
+                                                            <input class="form-control-lg qty_input" type="number" 
+                                                            name="quantity" value="{{ item.quantity }}" min="1" max="99" 
+                                                            data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                            <div class="input-group-append">
+                                                                <button class="increase-qty btn" 
+                                                                    data-item_id="{{ item.item_id }}" id="increase-qty_{{ item.item_id }}">
+                                                                    <span>
+                                                                        <i class="fas fa-plus"></i>
+                                                                    </span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <a class="update-items-link">Update items</a>
+                                    <a class="remove-items-link" id="remove_{{ item.item_id }}" >
+                                        Remove items</a>
                                 </td>
                                 <td class="py-2">
                                     <p>€{{ item.course.price }}</p>
@@ -69,7 +103,7 @@
                             <td colspan="5" class="text-right">
                                 <a href="" class="btn btn-primary btn-lg">
                                     <span class="text-uppercase">Secure Checkout</span>
-                                    <span class="icon">
+                                    <span>
                                         <i class="fas fa-lock"></i>
                                     </span>
                                 </a>
@@ -89,36 +123,26 @@
         <div class="row">
             <div class="col-6 col-md-2 offset-md-1">
                 <a href="{% url 'french' %}" class="btn btn-primary btn-lg bag-btn">
-                    <span class="icon">
-                    </span>
                     <span class="text-uppercase">French</span>
                 </a>
             </div>
             <div class="col-6 col-md-2">
                 <a href="{% url 'italian' %}" class="btn btn-primary btn-lg bag-btn">
-                    <span class="icon">
-                    </span>
                     <span class="text-uppercase">Italian</span>
                 </a>
             </div>
             <div class="col-6 col-md-2">
                 <a href="{% url 'portugese' %}" class="btn btn-primary btn-lg bag-btn">
-                    <span class="icon">
-                    </span>
                     <span class="text-uppercase">Portugese</span>
                 </a>
             </div>
             <div class="col-6 col-md-2">
                 <a href="{% url 'romanian' %}" class="btn btn-primary btn-lg bag-btn">
-                    <span class="icon">
-                    </span>
                     <span class="text-uppercase">Romanian</span>
                 </a>
             </div>
             <div class="col col-md-2">
                 <a href="{% url 'spanish' %}" class="btn btn-primary btn-lg bag-btn">
-                    <span class="icon">
-                    </span>
                     <span class="text-uppercase">Spanish</span>
                 </a>
             </div>
@@ -126,5 +150,36 @@
     {% endif %}
        
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'courses/includes/qty_input_script.html' %}
+<script type="text/javascript">
+ // based on Boutique Ado walkthrough project
+
+    // handle click event by updating item qty
+    $('.update-items-link').click(function(e) {
+        let form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // handle click event by removing items
+    $('.remove-items-link').click(function(e) {
+        // renders csrf token as hidden input field in form
+        let csrfToken = "{{ csrf_token }}";
+        // removes item id to remove item from shopping bag
+        let itemId = $(this).attr('id').split('remove_')[1];
+        // sets new url once items have been removed
+        let url = `/shopping_bag/remove/${itemId}`;
+        let data = {'csrfmiddlewaretoken': csrfToken};
+
+        // posts url and data to server and reloads page
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 {% endblock %}
 
