@@ -52,7 +52,7 @@
                                     <p>€{{ item.course.price }}</p>
                                 </td>
                                 <td class="py-2">
-                                    <form method="POST" action="">
+                                    <form class="update-form" method="POST" action="{% url 'change_shopping_bag' item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="row mx-auto">
