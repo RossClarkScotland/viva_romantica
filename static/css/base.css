@@ -97,6 +97,28 @@ html, body {
 .remove-items-link {
     cursor: pointer;
 }
+
+/**** toasts ****/
+
+.message-container {
+    position: fixed;
+    z-index: 99999999999;
+}
+
+.toast-capper {
+    height: 2rem;
+}
+
+.toast-header {
+    text-transform: uppercase;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+
+
 /**** Media Queries ****/
 
 /** from walkthough project: for XL screens**/
@@ -124,3 +146,6 @@ html, body {
       display: none;
     }
   }
+
+
+
