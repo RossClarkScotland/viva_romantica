@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+from courses.models import Course
 
 # Create your views here.
 def view_shopping_bag(request):
@@ -10,6 +12,7 @@ def view_shopping_bag(request):
 def add_to_shopping_bag(request, item_id):
     """ Add courses to the shopping bag """
 
+    course = Course.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     shopping_bag = request.session.get('shopping_bag', {})
@@ -18,6 +21,7 @@ def add_to_shopping_bag(request, item_id):
         shopping_bag[item_id] += quantity
     else:
         shopping_bag[item_id] = quantity
+        messages.success(request, f'You added {course.name} to your bag!')
 
 
     request.session['shopping_bag'] = shopping_bag
