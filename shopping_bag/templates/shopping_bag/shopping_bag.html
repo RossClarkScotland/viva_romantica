@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load shopping_bag_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -89,7 +90,7 @@
                                         Remove items</a>
                                 </td>
                                 <td class="py-2">
-                                    <p>€{{ item.course.price }}</p>
+                                    <p>€{{ item.course.price | shopping_bag_tools:item.quantity }}</p>
                                 </td>
                             </tr>
                         {% endfor %}
