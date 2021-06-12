@@ -171,7 +171,7 @@
         // removes item id to remove item from shopping bag
         let itemId = $(this).attr('id').split('remove_')[1];
         // sets new url once items have been removed
-        let url = `/shopping_bag/remove/${itemId}`;
+        let url = `/shopping_bag/remove/${itemId}/`;
         let data = {'csrfmiddlewaretoken': csrfToken};
 
         // posts url and data to server and reloads page
