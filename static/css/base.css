@@ -105,6 +105,12 @@ html, body {
     z-index: 99999999999;
 }
 
+.toast {
+    position: absolute; 
+    top: 5; 
+    right: 0;
+}
+
 .toast-capper {
     height: 2rem;
 }
@@ -116,7 +122,6 @@ html, body {
 .custom-toast {
     overflow: visible;
 }
-
 
 
 /**** Media Queries ****/
