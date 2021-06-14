@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'courses',
     'shopping_bag',
     'checkout',
+
+    # external apps
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'viva_romantica.urls'
+
+CRISPY-TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -78,6 +83,10 @@ TEMPLATES = [
                 # enables access to shopping bag contexts across whole project
                 'shopping_bag.contexts.shopping_bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
