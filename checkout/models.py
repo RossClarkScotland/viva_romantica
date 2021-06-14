@@ -23,7 +23,6 @@ class Order(models.Model):
     address2 = models.CharField(max_length=60, null=True, blank=True)
     region_or_county = models.CharField(max_length=60, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
@@ -33,7 +32,7 @@ class Order(models.Model):
 
     def update_total(self):
         """updates grand total each time an item is added"""
-        self.order_total = self.lineitems.aggregate(Sum('orderitem_total'))['orderitem_total__sum']
+        self.order_total = self.orderitems.aggregate(Sum('orderitem_total'))['orderitem_total__sum']
         self.save()
 
     def save(self, *args, **kwargs):
