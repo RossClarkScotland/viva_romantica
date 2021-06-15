@@ -63,7 +63,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'viva_romantica.urls'
 
-CRISPY-TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
